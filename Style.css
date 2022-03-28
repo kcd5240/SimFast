@@ -1,0 +1,24 @@
+body {
+  font-family: Georgia, serif;
+  font-size: 100%;
+  line-height: 175%;
+  background: Whitesmoke;
+  margin: 0;
+
+}
+header {
+    background-color: white;
+    line-height: 0;
+    text-align: center;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+h1 {
+  font: bold  Georgia, serif;
+  text-shadow: .1em .1em .2em gray;
+  color: midnightblue;
+} 
+canvas {
+    border: 2px solid red;
+    margin-left: 5%;
+}
