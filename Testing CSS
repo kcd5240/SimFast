@@ -1,0 +1,20 @@
+.Arrival-1 {
+  height: 20px;
+  width: 20px;
+  background: #0ffc03;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.Arrival-2 {
+  height: 20px;
+  width: 20px;
+  background: #0ffc03;
+  border-radius: 50%;
+  display: inline-block;
+  
+  transition-duration: 1000ms;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(1,.11,.22,1.41);
+  transition-delay: 2s;
+}
