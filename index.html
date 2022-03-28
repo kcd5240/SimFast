@@ -1,45 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>SimFast to Web</title>
-    <style>
-        @import url("Style.css");
-    </style>
-</head>
-<body> 
-    <header><h1>SimFast to Web</h1></header>
-    
-    
-    <canvas id="viewport" width =600 height="600" style="background: url('SimFastSimulation2.png')"></canvas>
+<body style="background-color:#101c11;">
 
-    <button id="run">Start</button>
-    <select id="multiplier">
-        <option value="1">1x</option>  
-        <option value="2">2x</option>  
-        <option value="5" selected="selected">5x</option>  
-        <option value="10">10x</option>  
-        <option value="20">20x</option>  
-    </select>
-    
-<script type="text/javascript">
-
-var myLink = document.getElementById("run");
-
-myLink.onclick = function(){
-
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = "Canvas.js"; 
-    document.getElementsByTagName("head")[0].appendChild(script);
-    return false;
-
-}
-
-
-</script>
-    
-    
-    
-</body>
-</html>
+<span class="Arrival-1"></span>
+<span class="Arrival-2"></span>
+<span class="Arrival-3"></span>
+<span class="Arrival-4"></span>
+<span class="Arrival-5"></span>
+  
+<span class="Departure-1"></span>
+<span class="Departure-2"></span>
+<span class="Departure-3"></span>
+<span class="Departure-4"></span>
+<span class="Departure-5"></span>
+  
+<span class="Enroute-1"></span>
+<span class="Enroute-2"></span>
+<span class="Enroute-3"></span>
+<span class="Enroute-4"></span>
+<span class="Enroute-5"></span>
