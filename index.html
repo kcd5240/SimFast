@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SimFast to Web</title>
+    <style>
+        @import url("Style.css");
+    </style>
+</head>
+<body>
+    <div id="layout">
+    <header>
+        <h1>SimFast to Web</h1>
+    </header>
+    
+    <main>
+    <canvas id="viewport" width ="600" height="600" style="background: url('SimFastSimulation.png')"></canvas>
+    </main>
+    
+    <aside>
+    <select id="multiplier">
+        <option value="1">1x</option>  
+        <option value="2">2x</option>  
+        <option value="5" selected="selected">5x</option>  
+        <option value="10">10x</option>  
+        <option value="20">20x</option>  
+    </select>
+    <button id="run">Start</button>
+    <button id="pause">Pause/Continue</button>
+    <textarea id="time"></textarea>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    
+    <script type="text/javascript">
+    var myLink = document.getElementById("run");
+
+    myLink.onclick = function(){
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "Canvas.js"; 
+        document.getElementsByTagName("head")[0].appendChild(script);
+        return false;
+    }
+    </script>
+    </aside>
+        
+</div>   
+</body>
+</html>
