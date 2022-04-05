@@ -4,7 +4,7 @@ body {
   line-height: 175%;
   background: Whitesmoke;
   margin: 0;
-
+  text-align: center;
 }
 header {
     background-color: white;
@@ -18,7 +18,32 @@ h1 {
   text-shadow: .1em .1em .2em gray;
   color: midnightblue;
 } 
-canvas {
+#viewport {
     border: 2px solid red;
-    margin-left: 5%;
+}
+#run {
+    width: 63px;
+}
+#time {
+    resize: none;
+    width: 105px;
+    height: 16px;
+    text-align: center;
+}
+@media screen and (min-width: 765px) {
+  #layout {
+         display: grid;
+         grid-template-rows: 40px 600px;
+         grid-template-columns: auto 600px auto 150px auto;
+        }
+        header {
+         grid-area: 1 / 1 / 2 / -1;
+        }
+        main {
+         grid-area: 2 / 2 / 3 / 3;
+ 
+        }
+        aside {
+         grid-area: 2 / 4 / 3 / 5; 
+        }
 }
