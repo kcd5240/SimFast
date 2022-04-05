@@ -11,8 +11,6 @@ const obj10 = {airId:"JIA5358", dest:"MSP", type:"CRJ9", altd:011, speed:16, cla
 
 var canvas = document.querySelector("canvas");
 var c = canvas.getContext("2d");
-var multiplier = document.getElementById("multiplier");
-var m = multiplier.value;
 var count = 0;
 var timer = 0;
 var isPause = false;
@@ -42,11 +40,13 @@ function animate() {
     if(timer > 1000){location.reload();}
     if(isPause){return;}
     requestAnimationFrame(animate);
-    
-    getTime();
     c.clearRect(0,0,innerWidth,innerHeight);
-    c.fillStyle = "white" ;
-    c.fillText(Math.round(timer), 500, 100);
+
+    var multiplier = document.getElementById("multiplier");
+    var m = multiplier.value;
+    getTime();
+//    c.fillStyle = "white" ;
+//    c.fillText(Math.round(timer), 500, 100);
     
     count += .015;
     timer += .0167*m;
@@ -188,8 +188,6 @@ function getTime() {
         if(sec < 10){time = min+":0"+sec;}
         else{time = min+":"+sec;} 
     }
-    
     document.getElementById("time").value = time;
 }
-
 animate();
