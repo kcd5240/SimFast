@@ -26,16 +26,15 @@
             <option value="10">10x</option>
             <option value="20">20x</option>
         </select>
-        <button id="run">Start</button>
-        <button id="pause">Pause/Continue</button>
+        <button id="run">Run</button>
+        <button id="pause">Stop</button>
+        <button id="restart">Restart</button>
         <textarea id="time"></textarea>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
         <script type="text/javascript">
-            var myLink = document.getElementById("run");
-
-            myLink.onclick = function(){
+            window.onload = function(){
                 var script = document.createElement("script");
                 script.type = "text/javascript";
                 script.src = "Canvas.js";
