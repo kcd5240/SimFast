@@ -1,13 +1,13 @@
-const obj1 = {airId:"EJA363", dest:"FLL", type:"E55P", altd:090, speed:27, class:"E E"};
-const obj2 = {airId:"FFT2378", dest:"PHL", type:"A321", altd:091, speed:28, class:"F"};
-const obj3 = {airId:"N300GB", dest:"MIA", type:"BE40", altd:011, speed:16, class:"C"};
-const obj4 = {airId:"AAL2189", dest:"PHL", type:"A319", altd:090, speed:27, class:"C"};
-const obj5 = {airId:"FFT108", dest:"SJU", type:"A321", altd:010, speed:16, class:"F E"};
-const obj6 = {airId:"GPD816", dest:"OXC", type:"PC12", altd:089, speed:28, class:"B"};
-const obj7 = {airId:"DAL2942", dest:"PHL", type:"B739", altd:090, speed:28, class:"E E"};
-const obj8 = {airId:"AAL646", dest:"PHX", type:"A21N", altd:010, speed:15, class:"C"};
-const obj9 = {airId:"DAL8839", dest:"BOS", type:"B752", altd:101, speed:27, class:"E F"};
-const obj10 = {airId:"JIA5358", dest:"MSP", type:"CRJ9", altd:011, speed:16, class:"B"};
+const obj1 = {airId:"EJA363", dest:"FLL", type:"E55P", altd:090, speed:27, class:"E E", course:332};
+const obj2 = {airId:"FFT2378", dest:"PHL", type:"A321", altd:091, speed:28, class:"F", course:35};
+const obj3 = {airId:"N300GB", dest:"MIA", type:"BE40", altd:011, speed:16, class:"C", course:53};
+const obj4 = {airId:"AAL2189", dest:"PHL", type:"A319", altd:085, speed:27, class:"C", course:270};
+const obj5 = {airId:"FFT108", dest:"SJU", type:"A321", altd:010, speed:16, class:"F E", course:145};
+const obj6 = {airId:"GPD816", dest:"OXC", type:"PC12", altd:088, speed:28, class:"B", course:115};
+const obj7 = {airId:"DAL2942", dest:"PHL", type:"B739", altd:090, speed:28, class:"E E", course:126};
+const obj8 = {airId:"AAL646", dest:"PHX", type:"A21N", altd:010, speed:15, class:"C", course:164};
+const obj9 = {airId:"DAL8839", dest:"BOS", type:"B752", altd:101, speed:27, class:"E F", course:22};
+const obj10 = {airId:"JIA5358", dest:"MSP", type:"CRJ9", altd:011, speed:16, class:"B", course:71};
 
 var canvas = document.querySelector("canvas");
 var c = canvas.getContext("2d");
@@ -16,7 +16,7 @@ var isPause = true;
 var count = 0;
 
 // pause or continue the animation on #pause click
-$("#pause").on('click',function(){
+$("#pause").on('click',function() {
     isPause=true;
 });
 
@@ -64,9 +64,8 @@ function animate() {
 
     var multiplier = document.getElementById("multiplier");
     var m = multiplier.value;
-    getTime();
+    getTime(timer);
     getFlightInfo(obj1, "01:15", "info");
-    getFlightInfo(obj2, "03:45");
 //    c.fillStyle = "white" ;
 //    c.fillText(Math.round(timer), 500, 100);
     
@@ -76,101 +75,115 @@ function animate() {
     // #1 Flight enroute-1
     draw(x1, y1);
     flight(obj1, x1, y1);
-    x1 += .017*m;
-    y1 += .009*m;
+    var vx1 = getVx(obj1);
+    var vy1 = getVy(obj1);
+    x1 += vx1*m;
+    y1 -= vy1*m;
     
     // #2 Flight arrival-1
-    if(timer > 60 && timer<395){
+    if(timer > 120 && obj2.altd > 10){
         draw(x2, y2);
         flight(obj2, x2, y2);
-        x2 += .014*m;
-        y2 -= .01*m;
-        obj2.speed -= (.004*m/6);
-        obj2.altd -= .004*m;
+        var vx2 = getVx(obj2);
+        var vy2 = getVy(obj2);
+        x2 += vx2*m;
+        y2 -= vy2*m;
+        obj2.speed -= .0032*m/6;
+        obj2.altd -= .0033*m;
     }
     
     // #3 Flight departure-1
-    if(timer > 92){
+    if(timer > 152){
         draw(x3, y3);
         flight(obj3, x3, y3);
-        x3 += .01*m;
-        y3 -= .014*m;
-        obj3.speed += (.004*m/7);
-        obj3.altd += .004*m;
+        var vx3 = getVx(obj3);
+        var vy3 = getVy(obj3);
+        x3 += vx3*m;
+        y3 -= vy3*m;
+        obj3.speed += .0032*m/6;
+        obj3.altd += .0032*m;
     }
     
     // #4 Flight arrival-2
-    if(timer > 183 && timer<518){
+    if(timer > 243 && obj4.altd > 10){
         draw(x4, y4);
         flight(obj4, x4, y4);
-        y4 += .015*m;
-        obj4.speed -= (.004*m/7);
-        obj4.altd -= .004*m;
+        var vx4 = getVx(obj4);
+        var vy4 = getVy(obj4);
+        x4 += vx4*m;
+        y4 -= vy4*m;
+        obj4.speed -= .0032*m/6;
+        obj4.altd -= .0035*m;
     }
     
     // #5 Flight departure-2
-    if(timer > 228){
+    if(timer > 288){
         draw(x5, y5);
         flight(obj5, x5, y5);
-        x5 -= .016*m;
-        y5 -= .012*m;
-        obj5.speed += (.004*m/7);
-        obj5.altd += .004*m;
+        var vx5 = getVx(obj5);
+        var vy5 = getVy(obj5);
+        x5 += vx5*m;
+        y5 -= vy5*m;
+        obj5.speed += .0032*m/6;
+        obj5.altd += .0032*m;
     }
     
     // #6 Flight enroute-2
-    if(timer > 250) {
+    if(timer > 310) {
         draw(x6, y6);
         flight(obj6, x6, y6);
-        x6 -= .009*m;
-        y6 -= .018*m;
+        var vx6 = getVx(obj6);
+        var vy6 = getVy(obj6);
+        x6 += vx6*m;
+        y6 -= vy6*m;
     }
     
     // #7 Flight arrival-3
-    if(timer > 350 && timer<683){
+    if(timer > 410 && obj7.altd>10){
         draw(x7, y7);
         flight(obj7, x7, y7);
-        x7 -= .01*m;
-        y7 -= .015*m;
-        obj7.speed -= (.004*m/7);
-        obj7.altd -= .004*m;
-    }
-    
-    // #8 Flight departure-3
-    if(timer > 438){
-        draw(x8, y8);
-        flight(obj8, x8, y8);
-        x8 -= .017*m;
-        y8 -= .005*m;
-        obj8.speed += (.004*m/7);
-        obj8.altd += .004*m;
-    }
-    
-    // #9 Flight enroute-3
-    if(timer > 442 && timer<550) {
-        draw(x9, y9);
-        flight(obj9, x9, y9);
-        x9 += .006*m;
-        y9 -= .018*m;
-    }
-    if(timer > 550) {
-        draw(x9, y9);
-        flight(obj9, x9, y9);
-        x9 += .018*m;
-        y9 -= .006*m;
-        obj9.altd -= .0003*m;
-    }
-    
-    // #10 Flight departure-4
-    if(timer > 555){
-        draw(x10, y10);
-        flight(obj10, x10, y10);
-        x10 += .006*m;
-        y10 -= .018*m;
-        obj10.speed += (.004*m/7);
-        obj10.altd += .004*m;
+        var vx7 = getVx(obj7);
+        var vy7 = getVy(obj7);
+        x7 += vx7*m;
+        y7 -= vy7*m;
+        obj7.speed -= .0031*m/6;
+        obj7.altd -= .0031*m;
     }
 
+    // #8 Flight enroute-3
+    if(timer > 502) {
+        draw(x9, y9);
+        flight(obj9, x9, y9);
+        var vx9 = getVx(obj9);
+        var vy9 = getVy(obj9);
+        x9 += vx9*m;
+        y9 -= vy9*m;
+    }
+
+    // #9 Flight departure-3
+    if(timer > 645){
+        draw(x8, y8);
+        flight(obj8, x8, y8);
+        var vx8 = getVx(obj8);
+        var vy8 = getVy(obj8);
+        x8 += vx8*m;
+        y8 -= vy8*m;
+        obj8.speed += .0032*m/6;
+        obj8.altd += .0032*m;
+    }
+
+    
+    // #10 Flight departure-4
+    if(timer > 720){
+        draw(x10, y10);
+        flight(obj10, x10, y10);
+        var vx10 = getVx(obj10);
+        var vy10 = getVy(obj10);
+        x10 += vx10*m;
+        y10 -= vy10*m;
+        obj10.speed += .0032*m/6;
+        obj10.altd += .0032*m;
+    }
 }
 
 
@@ -199,9 +212,9 @@ function flight(obj, x, y) {
     } 
 }
 
-function getTime() {
-    var min  = parseInt(timer/60);
-    var sec = parseInt(timer % 60);
+function getTime(t) {
+    var min  = parseInt(t/60);
+    var sec = parseInt(t % 60);
     let time = "";
     if(min <10){
         if(sec < 10){time = "0"+min+":0"+sec;}
@@ -220,6 +233,18 @@ function getFlightInfo(obj, time, place) {
     info = info + "\t" + obj.type;
     info = info + " " + obj.dest;
     document.getElementById(place).value = info;
+}
+
+function getVx(obj) {
+    var rads = obj.course * Math.PI / 180;
+    var vx = Math.cos(rads)*obj.speed/60;
+    return vx/25;
+}
+
+function getVy(obj) {
+    var rads = obj.course * Math.PI / 180;
+    var vy = Math.sin(rads)*obj.speed/60;
+    return vy/25;
 }
 
 animate();
