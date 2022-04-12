@@ -21,20 +21,39 @@ h1 {
 #viewport {
     border: 2px solid red;
 }
-#run {
+#run, #pause, #restart, #multiplier {
     width: 63px;
 }
 #time {
     resize: none;
-    width: 105px;
-    height: 16px;
+    width: 130px;
+    height: 18px;
     text-align: center;
+    border: 1px solid black;
+}
+input {
+    resize: none;
+    font-family:"Lucida Console",Monoco,monospace;
+    font-size:12px;
+    width: 200px;
+    height: 16px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+}
+#flightInfo {
+    padding: 3px;
+    padding-top: 10px;
+    margin-top: 10px;
+    border: 1px solid black;
+    background: #FFEFCB;
 }
 @media screen and (min-width: 765px) {
   #layout {
          display: grid;
          grid-template-rows: 40px 600px;
-         grid-template-columns: auto 600px auto 150px auto;
+         grid-template-columns: auto 600px auto 208px auto;
         }
         header {
          grid-area: 1 / 1 / 2 / -1;
@@ -44,6 +63,6 @@ h1 {
  
         }
         aside {
-         grid-area: 2 / 4 / 3 / 5; 
+         grid-area: 2 / 4 / 3 / 5;
         }
 }

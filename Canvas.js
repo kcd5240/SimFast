@@ -64,22 +64,21 @@ function animate() {
 
     var multiplier = document.getElementById("multiplier");
     var m = multiplier.value;
-    getTime(timer);
-    getFlightInfo(obj1, "01:15", "info");
-//    c.fillStyle = "white" ;
-//    c.fillText(Math.round(timer), 500, 100);
+    document.getElementById("time").value = getTime(timer);
+    displayFlightInfo();
     
     count += .015;
     timer += .0167*m;
-    
     // #1 Flight enroute-1
-    draw(x1, y1);
-    flight(obj1, x1, y1);
-    var vx1 = getVx(obj1);
-    var vy1 = getVy(obj1);
-    x1 += vx1*m;
-    y1 -= vy1*m;
-    
+    if(timer > 65) {
+        draw(x1, y1);
+        flight(obj1, x1, y1);
+        var vx1 = getVx(obj1);
+        var vy1 = getVy(obj1);
+        x1 += vx1*m;
+        y1 -= vy1*m;
+    }
+
     // #2 Flight arrival-1
     if(timer > 120 && obj2.altd > 10){
         draw(x2, y2);
@@ -91,7 +90,7 @@ function animate() {
         obj2.speed -= .0032*m/6;
         obj2.altd -= .0033*m;
     }
-    
+
     // #3 Flight departure-1
     if(timer > 152){
         draw(x3, y3);
@@ -103,7 +102,7 @@ function animate() {
         obj3.speed += .0032*m/6;
         obj3.altd += .0032*m;
     }
-    
+
     // #4 Flight arrival-2
     if(timer > 243 && obj4.altd > 10){
         draw(x4, y4);
@@ -115,7 +114,7 @@ function animate() {
         obj4.speed -= .0032*m/6;
         obj4.altd -= .0035*m;
     }
-    
+
     // #5 Flight departure-2
     if(timer > 288){
         draw(x5, y5);
@@ -127,7 +126,7 @@ function animate() {
         obj5.speed += .0032*m/6;
         obj5.altd += .0032*m;
     }
-    
+
     // #6 Flight enroute-2
     if(timer > 310) {
         draw(x6, y6);
@@ -137,7 +136,7 @@ function animate() {
         x6 += vx6*m;
         y6 -= vy6*m;
     }
-    
+
     // #7 Flight arrival-3
     if(timer > 410 && obj7.altd>10){
         draw(x7, y7);
@@ -172,7 +171,7 @@ function animate() {
         obj8.altd += .0032*m;
     }
 
-    
+
     // #10 Flight departure-4
     if(timer > 720){
         draw(x10, y10);
@@ -217,22 +216,41 @@ function getTime(t) {
     var sec = parseInt(t % 60);
     let time = "";
     if(min <10){
-        if(sec < 10){time = "0"+min+":0"+sec;}
-        else{time = "0"+min+":"+sec;} 
+        if(sec < 10){time += "0"+min+":0"+sec;}
+        else{time += "0"+min+":"+sec;}
     } else {
-        if(sec < 10){time = min+":0"+sec;}
-        else{time = min+":"+sec;} 
+        if(sec < 10){time += min+":0"+sec;}
+        else{time += min+":"+sec;}
     }
-    document.getElementById("time").value = time;
+    return time;
 }
 
-function getFlightInfo(obj, time, place) {
+// Return individual flight details
+function getFlightInfo(obj, t, route, place) {
+    time = getTime(parseInt(t))
     let info = "";
-    info = info + time;
-    info = info + " E " + obj.airId;
-    info = info + "\t" + obj.type;
-    info = info + " " + obj.dest;
+    info += time;
+    info += " " + route + " " + obj.airId;
+    info += "\t" + obj.type;
+    info += " " + obj.dest;
     document.getElementById(place).value = info;
+    if(timer > parseInt(t)){
+        document.getElementById(place).style.backgroundColor = "#ACD0E8";
+    }
+}
+
+// Display all flight details
+function displayFlightInfo() {
+    getFlightInfo(obj1, "65", "E", "info1");
+    getFlightInfo(obj2, "120", "A", "info2");
+    getFlightInfo(obj3, "152", "D", "info3");
+    getFlightInfo(obj4, "243", "A", "info4");
+    getFlightInfo(obj5, "288", "D", "info5");
+    getFlightInfo(obj6, "310", "E", "info6");
+    getFlightInfo(obj7, "410", "A", "info7");
+    getFlightInfo(obj8, "502", "E", "info8");
+    getFlightInfo(obj9, "645", "D", "info9");
+    getFlightInfo(obj10, "720", "D", "info10");
 }
 
 function getVx(obj) {
