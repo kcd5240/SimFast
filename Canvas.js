@@ -65,6 +65,8 @@ function animate() {
     var multiplier = document.getElementById("multiplier");
     var m = multiplier.value;
     getTime();
+    getFlightInfo(obj1, "01:15", "info");
+    getFlightInfo(obj2, "03:45");
 //    c.fillStyle = "white" ;
 //    c.fillText(Math.round(timer), 500, 100);
     
@@ -209,6 +211,15 @@ function getTime() {
         else{time = min+":"+sec;} 
     }
     document.getElementById("time").value = time;
+}
+
+function getFlightInfo(obj, time, place) {
+    let info = "";
+    info = info + time;
+    info = info + " E " + obj.airId;
+    info = info + "\t" + obj.type;
+    info = info + " " + obj.dest;
+    document.getElementById(place).value = info;
 }
 
 animate();
