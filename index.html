@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>SimFast to Web</title>
+    <title>SimFast ATC</title>
     <style>
         @import url("Style.css");
 
@@ -11,7 +11,7 @@
 <body>
 <div id="layout">
     <header>
-        <h1>SimFast to Web</h1>
+        <h1>SimFast ATC Training Site</h1>
     </header>
 
     <main>
@@ -21,15 +21,15 @@
             <tr>
                 <td rowspan="3">
                     <div id="container">
-                        <input id="airId"><br><input id="type"><br><input id="planId">
+                        <input id="airId" readonly><br><input id="type" readonly><br><input id="planId" readonly>
                     </div>
                 </td>
-                <td><input id="squawk"></td>
-                <td rowspan="3"><input id="airport"></td>
-                <td rowspan="3"><input id="route"></td>
+                <td><input id="squawk" readonly></td>
+                <td rowspan="3"><input id="airport" readonly></td>
+                <td rowspan="3"><input id="route" readonly></td>
             </tr>
-            <tr><td><input id="pTime"></td></tr>
-            <tr><td><input id="altd"></td></tr>
+            <tr><td><input id="pTime" readonly></td></tr>
+            <tr><td><input id="altd" readonly></td></tr>
         </table>
     </main>
 
@@ -44,7 +44,7 @@
         </select>
         <button id="run">Run</button>
         <button id="pause">Stop</button>
-        <textarea id="time"></textarea>
+        <input id="time" readonly>
         <button id="restart">Restart</button>
         </div>
 
