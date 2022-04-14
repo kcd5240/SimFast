@@ -21,6 +21,42 @@ h1 {
 #viewport {
     border: 2px solid red;
 }
+table {
+    width: 600px;
+    height: 100px;
+    border-collapse: collapse;
+}
+td {
+    border: 1px solid gray;
+    text-align: left;
+    vertical-align: top;
+    background-color: #FFFFC0;
+}
+th {
+    border: 1px solid gray;
+    padding-right: 5px;
+    text-align: right;
+    vertical-align: top;
+}
+main input {
+    border: none;
+    background: transparent;
+}
+#airId, #type, #planId {
+    width: 81px;
+    height: 12px;
+}
+#squawk, #pTime, #altd {
+    width: 63px;
+    height: 12px;
+}
+#airport{
+    width: 90px;
+}
+#route {
+    width: 338px;
+    color: red;
+}
 #run, #pause, #restart, #multiplier {
     width: 63px;
 }
@@ -31,7 +67,7 @@ h1 {
     text-align: center;
     border: 1px solid black;
 }
-input {
+#flightInfo input {
     resize: none;
     font-family:"Lucida Console",Monoco,monospace;
     font-size:12px;
@@ -43,13 +79,15 @@ input {
     background: transparent;
 }
 #flightInfo {
+    width: 200px;
     padding: 3px;
     padding-top: 10px;
     margin-top: 10px;
     border: 1px solid black;
     background: #FFEFCB;
 }
-@media screen and (min-width: 765px) {
+
+@media screen and (min-width: 815px) {
   #layout {
          display: grid;
          grid-template-rows: 40px 600px;
@@ -60,9 +98,26 @@ input {
         }
         main {
          grid-area: 2 / 2 / 3 / 3;
- 
         }
         aside {
          grid-area: 2 / 4 / 3 / 5;
+        }
+
+}@media screen and (max-width: 814px) {
+  #layout {
+         display: grid;
+         grid-template-rows: 40px 1fr 30px 500px;
+         grid-template-columns: auto 600px auto;
+        }
+        header {
+         grid-area: 1 / 1 / 2 / -1;
+        }
+        main {
+         grid-area: 2 / 2 / 3 / 3;
+        }
+        aside {
+         grid-area: 4 / 2 / 5 / 3;
+         display: grid;
+         grid-template-columns: 300px 300px;
         }
 }

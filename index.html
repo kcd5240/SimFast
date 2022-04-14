@@ -16,9 +16,25 @@
 
     <main>
         <canvas id="viewport" width="600" height="600" style="background: url('SimFastSimulation2.jpg')"></canvas>
+        <table id="table" style="display: none">
+            <tr><th colspan="4" id="close"><button>X</button></th></tr>
+            <tr>
+                <td rowspan="3">
+                    <div id="container">
+                        <input id="airId"><br><input id="type"><br><input id="planId">
+                    </div>
+                </td>
+                <td><input id="squawk"></td>
+                <td rowspan="3"><input id="airport"></td>
+                <td rowspan="3"><input id="route"></td>
+            </tr>
+            <tr><td><input id="pTime"></td></tr>
+            <tr><td><input id="altd"></td></tr>
+        </table>
     </main>
 
     <aside>
+        <div id="controller">
         <select id="multiplier">
             <option value="1">1x</option>
             <option value="2">2x</option>
@@ -27,9 +43,11 @@
             <option value="20">20x</option>
         </select>
         <button id="run">Run</button>
-        <button id="pause">Stop</button><br>
-        <button id="restart">Restart</button>
+        <button id="pause">Stop</button>
         <textarea id="time"></textarea>
+        <button id="restart">Restart</button>
+        </div>
+
         <div id="flightInfo">
             <input type="button" id="info1">
             <input type="button" id="info2">

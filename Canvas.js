@@ -15,6 +15,50 @@ var timer = 0;
 var isPause = true;
 var count = 0;
 
+$("#close").on('click',function() {
+    document.getElementById("table").style.display = "none";
+});
+$("#info1").on('click',function() {
+    document.getElementById("table").style.display = "block";
+    getFLightStrip(obj1, "203", "6415", "P1340", "FXE");
+});
+$("#info2").on('click',function() {
+    document.getElementById("table").style.display = "block";
+    getFLightStrip(obj2, "311", "1511", "P1113", "LHR");
+});
+$("#info3").on('click',function() {
+    document.getElementById("table").style.display = "block";
+    getFLightStrip(obj3, "110", "4947", "P1386", "PHL");
+});
+$("#info4").on('click',function() {
+    document.getElementById("table").style.display = "block";
+    getFLightStrip(obj4, "158", "4120", "P1272", "UNV");
+});
+$("#info5").on('click',function() {
+    document.getElementById("table").style.display = "block";
+    getFLightStrip(obj5, "590", "5158", "P1016", "PHL");
+});
+$("#info6").on('click',function() {
+    document.getElementById("table").style.display = "block";
+    getFLightStrip(obj6, "662", "5275", "P1417", "SOP");
+});
+$("#info7").on('click',function() {
+    document.getElementById("table").style.display = "block";
+    getFLightStrip(obj7, "795", "1891", "P1571", "DAY");
+});
+$("#info8").on('click',function() {
+    document.getElementById("table").style.display = "block";
+    getFLightStrip(obj8, "489", "5405", "P1148", "ILM");
+});
+$("#info9").on('click',function() {
+    document.getElementById("table").style.display = "block";
+    getFLightStrip(obj9, "172", "2476", "P1472", "PHL");
+});
+$("#info10").on('click',function() {
+    document.getElementById("table").style.display = "block";
+    getFLightStrip(obj10, "789", "2579", "P1239", "PHL");
+});
+
 // pause or continue the animation on #pause click
 $("#pause").on('click',function() {
     isPause=true;
@@ -57,7 +101,7 @@ var x9=75; var y9=600;
 var x10=301; var y10=303;
 
 function animate() {
-    if(timer > 1000){location.reload();}
+    if(timer > 1200){location.reload();}
     if(isPause){return;}
     requestAnimationFrame(animate);
     c.clearRect(0,0,innerWidth,innerHeight);
@@ -69,6 +113,7 @@ function animate() {
     
     count += .015;
     timer += .0167*m;
+
     // #1 Flight enroute-1
     if(timer > 65) {
         draw(x1, y1);
@@ -173,7 +218,7 @@ function animate() {
 
 
     // #10 Flight departure-4
-    if(timer > 720){
+    if(timer > 740){
         draw(x10, y10);
         flight(obj10, x10, y10);
         var vx10 = getVx(obj10);
@@ -250,7 +295,29 @@ function displayFlightInfo() {
     getFlightInfo(obj7, "410", "A", "info7");
     getFlightInfo(obj8, "502", "E", "info8");
     getFlightInfo(obj9, "645", "D", "info9");
-    getFlightInfo(obj10, "720", "D", "info10");
+    getFlightInfo(obj10, "740", "D", "info10");
+}
+
+function getFLightStrip(obj, planId, squawk, pTime, dep) {
+    document.getElementById("airId").value = obj.airId;
+    document.getElementById("type").value = obj.type;
+    document.getElementById("planId").value = planId;
+    document.getElementById("squawk").value = squawk;
+    document.getElementById("pTime").value = pTime;
+    let altitude = "";
+    if(parseInt(obj.altd) < 100) {
+        altitude = "0" + parseInt(obj.altd);
+    } else {
+        altitude = parseInt(obj.altd);
+    }
+    document.getElementById("altd").value = altitude;
+    document.getElementById("airport").value = dep;
+    let route = dep + "  ";
+    if(dep != "PHL" && obj.dest!= "PHL") {
+        route += "PHL  ";
+    }
+    route += obj.dest;
+    document.getElementById("route").value = route;
 }
 
 function getVx(obj) {
