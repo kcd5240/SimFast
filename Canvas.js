@@ -1,13 +1,18 @@
-const obj1 = {airId:"EJA363", dest:"FLL", type:"E55P", altd:090, speed:27, class:"E E", course:332};
-const obj2 = {airId:"FFT2378", dest:"PHL", type:"A321", altd:091, speed:28, class:"F", course:35};
-const obj3 = {airId:"N300GB", dest:"MIA", type:"BE40", altd:011, speed:16, class:"C", course:53};
-const obj4 = {airId:"AAL2189", dest:"PHL", type:"A319", altd:085, speed:27, class:"C", course:270};
-const obj5 = {airId:"FFT108", dest:"SJU", type:"A321", altd:010, speed:16, class:"F E", course:145};
-const obj6 = {airId:"GPD816", dest:"OXC", type:"PC12", altd:088, speed:28, class:"B", course:115};
+const obj1 = {airId:"EJA363",  dest:"FLL", type:"E55P", altd:090, speed:27, class:"E E", course:332};
+const obj2 = {airId:"FFT2378", dest:"PHL", type:"A321", altd:091, speed:28, class:"F",   course:35};
+const obj3 = {airId:"N300GB",  dest:"MIA", type:"BE40", altd:011, speed:16, class:"C",   course:53};
+const obj4 = {airId:"AAL2189", dest:"PHL", type:"A319", altd:085, speed:27, class:"C",   course:270};
+const obj5 = {airId:"FFT108",  dest:"SJU", type:"A321", altd:012, speed:16, class:"F E", course:145};
+const obj6 = {airId:"GPD816",  dest:"OXC", type:"PC12", altd:088, speed:28, class:"B",   course:115};
 const obj7 = {airId:"DAL2942", dest:"PHL", type:"B739", altd:090, speed:28, class:"E E", course:126};
-const obj8 = {airId:"AAL646", dest:"PHX", type:"A21N", altd:010, speed:15, class:"C", course:164};
+const obj8 = {airId:"AAL646",  dest:"PHX", type:"A21N", altd:012, speed:15, class:"C",   course:154};
 const obj9 = {airId:"DAL8839", dest:"BOS", type:"B752", altd:101, speed:27, class:"E F", course:22};
-const obj10 = {airId:"JIA5358", dest:"MSP", type:"CRJ9", altd:011, speed:16, class:"B", course:71};
+const obj10 = {airId:"JIA5358",dest:"MSP", type:"CRJ9", altd:011, speed:16, class:"B",   course:71};
+const obj11 = {airId:"SWA893", dest:"DEN", type:"B737", altd:092, speed:29, class:"E", course:240};
+const obj12 = {airId:"JIA5548",dest:"MEM", type:"CRJ7", altd:010, speed:15, class:"F", course:280};
+const obj13 = {airId:"AAL551", dest:"PHL", type:"A321", altd:088, speed:26, class:"C", course:180};
+const obj14 = {airId:"RPA4749",dest:"SOP", type:"E75L", altd:090, speed:28, class:"F E", course:290};
+const obj15 = {airId:"AAL856", dest:"PHL", type:"LJ60", altd:089, speed:27, class:"B", course:351};
 
 var canvas = document.querySelector("canvas");
 var c = canvas.getContext("2d");
@@ -48,15 +53,35 @@ $("#info7").on('click',function() {
 });
 $("#info8").on('click',function() {
     document.getElementById("table").style.display = "block";
-    getFLightStrip(obj8, "489", "5405", "P1148", "ILM");
+    getFLightStrip(obj9, "172", "2476", "P1472", "ILM");
 });
 $("#info9").on('click',function() {
     document.getElementById("table").style.display = "block";
-    getFLightStrip(obj9, "172", "2476", "P1472", "PHL");
+    getFLightStrip(obj8, "489", "5405", "P1148", "PHL");
 });
 $("#info10").on('click',function() {
     document.getElementById("table").style.display = "block";
     getFLightStrip(obj10, "789", "2579", "P1239", "PHL");
+});
+$("#info11").on('click',function() {
+    document.getElementById("table").style.display = "block";
+    getFLightStrip(obj11, "421", "8038", "P1243", "ATL");
+});
+$("#info12").on('click',function() {
+    document.getElementById("table").style.display = "block";
+    getFLightStrip(obj12, "275", "1124", "P1651", "PHL");
+});
+$("#info13").on('click',function() {
+    document.getElementById("table").style.display = "block";
+    getFLightStrip(obj13, "881", "6351", "P1282", "MIA");
+});
+$("#info14").on('click',function() {
+    document.getElementById("table").style.display = "block";
+    getFLightStrip(obj14, "919", "4816", "P1442", "MIC");
+});
+$("#info15").on('click',function() {
+    document.getElementById("table").style.display = "block";
+    getFLightStrip(obj15, "574", "4260", "P1680", "DFW");
 });
 
 // pause or continue the animation on #pause click
@@ -76,32 +101,46 @@ $("#restart").on('click',function(){
         isPause = false;
         animate();
     }
-    timer = 0;
-    x1=0; y1=100;
-    x2=0; y2=500;
-    x3=301; y3=303;
-    x4=301; y4=0;
-    x5=301; y5=303;
-    x6=600; y6=500;
-    x7=500; y7=600;
-    x8=301; y8=303;
-    x9=75; y9=600;
+    timer = 0; count = 0;
+    resetAllFlight();
+    x1=0   ; y1=100;
+    x2=0   ; y2=500;
+    x3=301 ; y3=303;
+    x4=301 ; y4=0;
+    x5=301 ; y5=303;
+    x6=600 ; y6=500;
+    x7=500 ; y7=600;
+    x9=75  ; y9=600;
+    x8=301 ; y8=303;
     x10=301; y10=303;
+    x11=500; y11=0;
+    x12=301; y12=303;
+    x13=600; y13=303;
+    x14=200; y14=0;
+    x15=0  ; y15=250;
 });
 
-var x1=0; var y1=100;
-var x2=0; var y2=500;
-var x3=301; var y3=303;
-var x4=301; var y4=0;
-var x5=301; var y5=303;
-var x6=600; var y6=500;
-var x7=500; var y7=600;
-var x8=301; var y8=303;
-var x9=75; var y9=600;
+var x1=0   ; var y1=100;
+var x2=0   ; var y2=500;
+var x3=301 ; var y3=303;
+var x4=301 ; var y4=0;
+var x5=301 ; var y5=303;
+var x6=600 ; var y6=500;
+var x7=500 ; var y7=600;
+var x9=75  ; var y9=600;
+var x8=301 ; var y8=303;
 var x10=301; var y10=303;
+var x11=500; var y11=0;
+var x12=301; var y12=303;
+var x13=600; var y13=303;
+var x14=200; var y14=0;
+var x15=0  ; var y15=250;
 
 function animate() {
-    if(timer > 1200){location.reload();}
+    if(timer > 1550){
+        isPause = true;
+        location.reload();
+    }
     if(isPause){return;}
     requestAnimationFrame(animate);
     c.clearRect(0,0,innerWidth,innerHeight);
@@ -216,7 +255,6 @@ function animate() {
         obj8.altd += .0032*m;
     }
 
-
     // #10 Flight departure-4
     if(timer > 740){
         draw(x10, y10);
@@ -227,6 +265,62 @@ function animate() {
         y10 -= vy10*m;
         obj10.speed += .0032*m/6;
         obj10.altd += .0032*m;
+    }
+
+    // #11 Flight enroute-4
+    if(timer > 808) {
+        draw(x11, y11);
+        flight(obj11, x11, y11);
+        var vx11 = getVx(obj11);
+        var vy11 = getVy(obj11);
+        x11 += vx11*m;
+        y11 -= vy11*m;
+    }
+
+    // #12 Flight departure-5
+    if(timer > 865) {
+        draw(x12, y12);
+        flight(obj12, x12, y12);
+        var vx12 = getVx(obj12);
+        var vy12 = getVy(obj12);
+        x12 += vx12*m;
+        y12 -= vy12*m;
+        obj12.speed += .0032*m/6;
+        obj12.altd += .0032*m;
+    }
+
+    // #13 Flight arrival-4
+    if(timer > 910  && obj13.altd > 10) {
+        draw(x13, y13);
+        flight(obj13, x13, y13);
+        var vx13 = getVx(obj13);
+        var vy13 = getVy(obj13);
+        x13 += vx13*m;
+        y13 -= vy13*m;
+        obj13.speed -= .0032*m/6;
+        obj13.altd -= .0034*m;
+    }
+
+    // #14 Flight enroute-5
+    if(timer > 934) {
+        draw(x14, y14);
+        flight(obj14, x14, y14);
+        var vx14 = getVx(obj14);
+        var vy14 = getVy(obj14);
+        x14 += vx14*m;
+        y14 -= vy14*m;
+    }
+
+    // #15 Flight arrival-5
+    if(timer > 1031  && obj15.altd > 12) {
+        draw(x15, y15);
+        flight(obj15, x15, y15);
+        var vx15 = getVx(obj15);
+        var vy15 = getVy(obj15);
+        x15 += vx15*m;
+        y15 -= vy15*m;
+        obj15.speed -= .0032*m/6;
+        obj15.altd -= .0036*m;
     }
 }
 
@@ -293,9 +387,14 @@ function displayFlightInfo() {
     getFlightInfo(obj5, "288", "D", "info5");
     getFlightInfo(obj6, "310", "E", "info6");
     getFlightInfo(obj7, "410", "A", "info7");
-    getFlightInfo(obj8, "502", "E", "info8");
-    getFlightInfo(obj9, "645", "D", "info9");
+    getFlightInfo(obj9, "502", "E", "info8");
+    getFlightInfo(obj8, "645", "D", "info9");
     getFlightInfo(obj10, "740", "D", "info10");
+    getFlightInfo(obj11, "808", "E", "info11");
+    getFlightInfo(obj12, "865", "D", "info12");
+    getFlightInfo(obj13, "910", "A", "info13");
+    getFlightInfo(obj14, "934", "E", "info14");
+    getFlightInfo(obj15, "1031", "A", "info15");
 }
 
 function getFLightStrip(obj, planId, squawk, pTime, dep) {
@@ -330,6 +429,45 @@ function getVy(obj) {
     var rads = obj.course * Math.PI / 180;
     var vy = Math.sin(rads)*obj.speed/60;
     return vy/25;
+}
+
+function resetFlight(obj, a, s, c) {
+    obj.altd = a;
+    obj.speed = s;
+    obj.course = c;
+}
+
+function resetAllFlight() {
+    resetFlight(obj1, 090, 27, 332);
+    resetFlight(obj2, 091, 28, 35);
+    resetFlight(obj3, 011, 16, 53);
+    resetFlight(obj4, 085, 27, 270);
+    resetFlight(obj5, 012, 16, 145);
+    resetFlight(obj6, 088, 28, 115);
+    resetFlight(obj7, 090, 28, 126);
+    resetFlight(obj8, 012, 15, 154);
+    resetFlight(obj9, 101, 27, 22);
+    resetFlight(obj10, 011, 16, 71);
+    resetFlight(obj11, 092, 29, 240);
+    resetFlight(obj12, 010, 15, 280);
+    resetFlight(obj13, 088, 26, 180);
+    resetFlight(obj14, 090, 28, 290);
+    resetFlight(obj15, 089, 27, 351);
+    document.getElementById("info1").style.backgroundColor = "#FFEFCB";
+    document.getElementById("info2").style.backgroundColor = "#FFEFCB";
+    document.getElementById("info3").style.backgroundColor = "#FFEFCB";
+    document.getElementById("info4").style.backgroundColor = "#FFEFCB";
+    document.getElementById("info5").style.backgroundColor = "#FFEFCB";
+    document.getElementById("info6").style.backgroundColor = "#FFEFCB";
+    document.getElementById("info7").style.backgroundColor = "#FFEFCB";
+    document.getElementById("info8").style.backgroundColor = "#FFEFCB";
+    document.getElementById("info9").style.backgroundColor = "#FFEFCB";
+    document.getElementById("info10").style.backgroundColor = "#FFEFCB";
+    document.getElementById("info11").style.backgroundColor = "#FFEFCB";
+    document.getElementById("info12").style.backgroundColor = "#FFEFCB";
+    document.getElementById("info13").style.backgroundColor = "#FFEFCB";
+    document.getElementById("info14").style.backgroundColor = "#FFEFCB";
+    document.getElementById("info15").style.backgroundColor = "#FFEFCB";
 }
 
 animate();

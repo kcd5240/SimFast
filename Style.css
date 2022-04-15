@@ -2,7 +2,7 @@ body {
   font-family: Georgia, serif;
   font-size: 100%;
   line-height: 175%;
-  background: #E1E1E1;
+  background: #ebebeb;
   margin: 0;
   text-align: center;
 }
@@ -58,7 +58,7 @@ main input {
     color: red;
 }
 #run, #pause, #restart, #multiplier {
-    width: 63px;
+    width: 65px;
 }
 #time {
     resize: none;
@@ -106,7 +106,7 @@ main input {
 }@media screen and (max-width: 814px) {
   #layout {
          display: grid;
-         grid-template-rows: 50px 1fr 30px 500px;
+         grid-template-rows: 50px 1fr 30px 450px;
          grid-template-columns: auto 600px auto;
         }
         header {
