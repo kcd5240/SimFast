@@ -1,18 +1,20 @@
-const obj1 = {airId:"EJA363",  dest:"FLL", type:"E55P", altd:090, speed:27, class:"E E", course:332};
-const obj2 = {airId:"FFT2378", dest:"PHL", type:"A321", altd:091, speed:28, class:"F",   course:35};
-const obj3 = {airId:"N300GB",  dest:"MIA", type:"BE40", altd:011, speed:16, class:"C",   course:53};
-const obj4 = {airId:"AAL2189", dest:"PHL", type:"A319", altd:085, speed:27, class:"C",   course:270};
-const obj5 = {airId:"FFT108",  dest:"SJU", type:"A321", altd:012, speed:16, class:"F E", course:145};
-const obj6 = {airId:"GPD816",  dest:"OXC", type:"PC12", altd:088, speed:28, class:"B",   course:115};
-const obj7 = {airId:"DAL2942", dest:"PHL", type:"B739", altd:090, speed:28, class:"E E", course:126};
-const obj8 = {airId:"AAL646",  dest:"PHX", type:"A21N", altd:012, speed:15, class:"C",   course:154};
-const obj9 = {airId:"DAL8839", dest:"BOS", type:"B752", altd:101, speed:27, class:"E F", course:22};
-const obj10 = {airId:"JIA5358",dest:"MSP", type:"CRJ9", altd:011, speed:16, class:"B",   course:71};
-const obj11 = {airId:"SWA893", dest:"DEN", type:"B737", altd:092, speed:29, class:"E", course:240};
-const obj12 = {airId:"JIA5548",dest:"MEM", type:"CRJ7", altd:010, speed:15, class:"F", course:280};
-const obj13 = {airId:"AAL551", dest:"PHL", type:"A321", altd:088, speed:26, class:"C", course:180};
-const obj14 = {airId:"RPA4749",dest:"SOP", type:"E75L", altd:090, speed:28, class:"F E", course:290};
-const obj15 = {airId:"AAL856", dest:"PHL", type:"LJ60", altd:089, speed:27, class:"B", course:351};
+const flights = [];
+flights[0] = {airId:"EJA363",  dest:"FLL", type:"E55P", altd:090, speed:27, class:"E E", course:332};
+flights[1] = {airId:"FFT2378", dest:"PHL", type:"A321", altd:091, speed:28, class:"F",   course:35};
+flights[2] = {airId:"N300GB",  dest:"MIA", type:"BE40", altd:011, speed:16, class:"C",   course:53};
+flights[3] = {airId:"AAL2189", dest:"PHL", type:"A319", altd:085, speed:27, class:"C",   course:270};
+flights[4] = {airId:"FFT108",  dest:"SJU", type:"A321", altd:012, speed:16, class:"F E", course:145};
+flights[5] = {airId:"GPD816",  dest:"OXC", type:"PC12", altd:088, speed:28, class:"B",   course:115};
+flights[6] = {airId:"DAL2942", dest:"PHL", type:"B739", altd:090, speed:28, class:"E E", course:126};
+flights[7] = {airId:"AAL646",  dest:"PHX", type:"A21N", altd:012, speed:15, class:"C",   course:154};
+flights[8] = {airId:"DAL8839", dest:"BOS", type:"B752", altd:094, speed:27, class:"E F", course:22};
+flights[9] = {airId:"JIA5358",dest:"MSP", type:"CRJ9", altd:011, speed:16, class:"B",   course:71};
+flights[10] = {airId:"SWA893", dest:"DEN", type:"B737", altd:092, speed:29, class:"E", course:240};
+flights[11] = {airId:"JIA5548",dest:"MEM", type:"CRJ7", altd:010, speed:15, class:"F", course:280};
+flights[12] = {airId:"AAL551", dest:"PHL", type:"A321", altd:088, speed:26, class:"C", course:180};
+flights[13] = {airId:"RPA4749",dest:"SOP", type:"E75L", altd:090, speed:28, class:"F E", course:290};
+flights[14] = {airId:"AAL856", dest:"PHL", type:"LJ60", altd:089, speed:27, class:"B", course:351};
+
 
 var canvas = document.querySelector("canvas");
 var c = canvas.getContext("2d");
@@ -25,63 +27,63 @@ $("#close").on('click',function() {
 });
 $("#info1").on('click',function() {
     document.getElementById("table").style.display = "block";
-    getFLightStrip(obj1, "203", "6415", "P1340", "FXE");
+    getFLightStrip(flights[0], "203", "6315", "P1142", "FXE", "090");
 });
 $("#info2").on('click',function() {
     document.getElementById("table").style.display = "block";
-    getFLightStrip(obj2, "311", "1511", "P1113", "LHR");
+    getFLightStrip(flights[1], "311", "1511", "P0848", "LHR", "091");
 });
 $("#info3").on('click',function() {
     document.getElementById("table").style.display = "block";
-    getFLightStrip(obj3, "110", "4947", "P1386", "PHL");
+    getFLightStrip(flights[2], "110", "4479", "P1300", "PHL", "090");
 });
 $("#info4").on('click',function() {
     document.getElementById("table").style.display = "block";
-    getFLightStrip(obj4, "158", "4120", "P1272", "UNV");
+    getFLightStrip(flights[3], "158", "4120", "P1034", "UNV", "085");
 });
 $("#info5").on('click',function() {
     document.getElementById("table").style.display = "block";
-    getFLightStrip(obj5, "590", "5158", "P1016", "PHL");
+    getFLightStrip(flights[4], "590", "5158", "P1315", "PHL", "091");
 });
 $("#info6").on('click',function() {
     document.getElementById("table").style.display = "block";
-    getFLightStrip(obj6, "662", "5275", "P1417", "SOP");
+    getFLightStrip(flights[5], "662", "5275", "P1115", "SOP", "088");
 });
 $("#info7").on('click',function() {
     document.getElementById("table").style.display = "block";
-    getFLightStrip(obj7, "795", "1891", "P1571", "DAY");
+    getFLightStrip(flights[6], "795", "1791", "P0929", "DAY", "090");
 });
 $("#info8").on('click',function() {
     document.getElementById("table").style.display = "block";
-    getFLightStrip(obj9, "172", "2476", "P1472", "ILM");
+    getFLightStrip(flights[8], "172", "2476", "P0831", "ILM", "094");
 });
 $("#info9").on('click',function() {
     document.getElementById("table").style.display = "block";
-    getFLightStrip(obj8, "489", "5405", "P1148", "PHL");
+    getFLightStrip(flights[7], "489", "5605", "P1345", "PHL", "091");
 });
 $("#info10").on('click',function() {
     document.getElementById("table").style.display = "block";
-    getFLightStrip(obj10, "789", "2579", "P1239", "PHL");
+    getFLightStrip(flights[9], "789", "2579", "P1400", "PHL", "090");
 });
 $("#info11").on('click',function() {
     document.getElementById("table").style.display = "block";
-    getFLightStrip(obj11, "421", "8038", "P1243", "ATL");
+    getFLightStrip(flights[10], "421", "7038", "P1244", "ATL", "092");
 });
 $("#info12").on('click',function() {
     document.getElementById("table").style.display = "block";
-    getFLightStrip(obj12, "275", "1124", "P1651", "PHL");
+    getFLightStrip(flights[11], "275", "1124", "P1413", "PHL", "089");
 });
 $("#info13").on('click',function() {
     document.getElementById("table").style.display = "block";
-    getFLightStrip(obj13, "881", "6351", "P1282", "MIA");
+    getFLightStrip(flights[12], "881", "6251", "P1212", "MIA", "088");
 });
 $("#info14").on('click',function() {
     document.getElementById("table").style.display = "block";
-    getFLightStrip(obj14, "919", "4816", "P1442", "MIC");
+    getFLightStrip(flights[13], "919", "4616", "P1050", "MIC", "090");
 });
 $("#info15").on('click',function() {
     document.getElementById("table").style.display = "block";
-    getFLightStrip(obj15, "574", "4260", "P1680", "DFW");
+    getFLightStrip(flights[14], "574", "4260", "P1120", "DFW", "089");
 });
 
 // pause or continue the animation on #pause click
@@ -120,6 +122,41 @@ $("#restart").on('click',function(){
     x15=0  ; y15=250;
 });
 
+$("#kb").on('click',function() {
+    document.getElementById("keyboard").style.display = "flex";
+});
+
+$("#closeKb").on('click',function() {
+    document.getElementById("keyboard").style.display = "none";
+});
+
+$("#ENTER").on('click',function() {
+    let cmd = document.getElementById("cmd").value;
+    let isFound = false;
+    for(let i = 0; i < 15; i++) {
+        if(cmd.includes(flights[i].airId)) {
+            let index = flights[i].airId.length;
+            let value = cmd.slice(index+1, cmd.length);
+
+            if(cmd.charAt(index) == "A") {
+                isFound = true;
+                flights[i].altd = value;
+            } else if(cmd.charAt(index) == "S") {
+                isFound = true;
+                flights[i].speed = value;
+            } else if(cmd.charAt(index) == "H") {
+                isFound = true;
+                flights[i].course = value;
+            }
+        }
+    }
+    if(!isFound) {
+        document.getElementById("cmd").value = "Invalid Command!";
+    } else {
+         document.getElementById("cmd").value = "";
+    }
+});
+
 var x1=0   ; var y1=100;
 var x2=0   ; var y2=500;
 var x3=301 ; var y3=303;
@@ -156,89 +193,89 @@ function animate() {
     // #1 Flight enroute-1
     if(timer > 65) {
         draw(x1, y1);
-        flight(obj1, x1, y1);
-        var vx1 = getVx(obj1);
-        var vy1 = getVy(obj1);
+        flight(flights[0], x1, y1);
+        var vx1 = getVx(flights[0]);
+        var vy1 = getVy(flights[0]);
         x1 += vx1*m;
         y1 -= vy1*m;
     }
 
     // #2 Flight arrival-1
-    if(timer > 120 && obj2.altd > 10){
+    if(timer > 120 && flights[1].altd > 10){
         draw(x2, y2);
-        flight(obj2, x2, y2);
-        var vx2 = getVx(obj2);
-        var vy2 = getVy(obj2);
+        flight(flights[1], x2, y2);
+        var vx2 = getVx(flights[1]);
+        var vy2 = getVy(flights[1]);
         x2 += vx2*m;
         y2 -= vy2*m;
-        obj2.speed -= .0032*m/6;
-        obj2.altd -= .0033*m;
+        flights[1].speed -= .0032*m/6;
+        flights[1].altd -= .0033*m;
     }
 
     // #3 Flight departure-1
     if(timer > 152){
         draw(x3, y3);
-        flight(obj3, x3, y3);
-        var vx3 = getVx(obj3);
-        var vy3 = getVy(obj3);
+        flight(flights[2], x3, y3);
+        var vx3 = getVx(flights[2]);
+        var vy3 = getVy(flights[2]);
         x3 += vx3*m;
         y3 -= vy3*m;
-        obj3.speed += .0032*m/6;
-        obj3.altd += .0032*m;
+        flights[2].speed += .0032*m/6;
+        flights[2].altd += .0032*m;
     }
 
     // #4 Flight arrival-2
-    if(timer > 243 && obj4.altd > 10){
+    if(timer > 243 && flights[3].altd > 10){
         draw(x4, y4);
-        flight(obj4, x4, y4);
-        var vx4 = getVx(obj4);
-        var vy4 = getVy(obj4);
+        flight(flights[3], x4, y4);
+        var vx4 = getVx(flights[3]);
+        var vy4 = getVy(flights[3]);
         x4 += vx4*m;
         y4 -= vy4*m;
-        obj4.speed -= .0032*m/6;
-        obj4.altd -= .0035*m;
+        flights[3].speed -= .0032*m/6;
+        flights[3].altd -= .0035*m;
     }
 
     // #5 Flight departure-2
     if(timer > 288){
         draw(x5, y5);
-        flight(obj5, x5, y5);
-        var vx5 = getVx(obj5);
-        var vy5 = getVy(obj5);
+        flight(flights[4], x5, y5);
+        var vx5 = getVx(flights[4]);
+        var vy5 = getVy(flights[4]);
         x5 += vx5*m;
         y5 -= vy5*m;
-        obj5.speed += .0032*m/6;
-        obj5.altd += .0032*m;
+        flights[4].speed += .0032*m/6;
+        flights[4].altd += .0032*m;
     }
 
     // #6 Flight enroute-2
     if(timer > 310) {
         draw(x6, y6);
-        flight(obj6, x6, y6);
-        var vx6 = getVx(obj6);
-        var vy6 = getVy(obj6);
+        flight(flights[5], x6, y6);
+        var vx6 = getVx(flights[5]);
+        var vy6 = getVy(flights[5]);
         x6 += vx6*m;
         y6 -= vy6*m;
     }
 
     // #7 Flight arrival-3
-    if(timer > 410 && obj7.altd>10){
+    if(timer > 410 && flights[6].altd>10){
         draw(x7, y7);
-        flight(obj7, x7, y7);
-        var vx7 = getVx(obj7);
-        var vy7 = getVy(obj7);
+        flight(flights[6], x7, y7);
+        var vx7 = getVx(flights[6]);
+        var vy7 = getVy(flights[6]);
         x7 += vx7*m;
         y7 -= vy7*m;
-        obj7.speed -= .0031*m/6;
-        obj7.altd -= .0031*m;
+        flights[6].speed -= .0031*m/6;
+        flights[6].altd -= .0031*m;
     }
 
     // #8 Flight enroute-3
     if(timer > 502) {
         draw(x9, y9);
-        flight(obj9, x9, y9);
-        var vx9 = getVx(obj9);
-        var vy9 = getVy(obj9);
+        flight(flights[8], x9, y9);
+        var vx9 = getVx(flights[8]);
+        var vy9 = getVy(flights[8]);
         x9 += vx9*m;
         y9 -= vy9*m;
     }
@@ -246,33 +283,33 @@ function animate() {
     // #9 Flight departure-3
     if(timer > 645){
         draw(x8, y8);
-        flight(obj8, x8, y8);
-        var vx8 = getVx(obj8);
-        var vy8 = getVy(obj8);
+        flight(flights[7], x8, y8);
+        var vx8 = getVx(flights[7]);
+        var vy8 = getVy(flights[7]);
         x8 += vx8*m;
         y8 -= vy8*m;
-        obj8.speed += .0032*m/6;
-        obj8.altd += .0032*m;
+        flights[7].speed += .0032*m/6;
+        flights[7].altd += .0032*m;
     }
 
     // #10 Flight departure-4
     if(timer > 740){
         draw(x10, y10);
-        flight(obj10, x10, y10);
-        var vx10 = getVx(obj10);
-        var vy10 = getVy(obj10);
+        flight(flights[9], x10, y10);
+        var vx10 = getVx(flights[9]);
+        var vy10 = getVy(flights[9]);
         x10 += vx10*m;
         y10 -= vy10*m;
-        obj10.speed += .0032*m/6;
-        obj10.altd += .0032*m;
+        flights[9].speed += .0032*m/6;
+        flights[9].altd += .0032*m;
     }
 
     // #11 Flight enroute-4
     if(timer > 808) {
         draw(x11, y11);
-        flight(obj11, x11, y11);
-        var vx11 = getVx(obj11);
-        var vy11 = getVy(obj11);
+        flight(flights[10], x11, y11);
+        var vx11 = getVx(flights[10]);
+        var vy11 = getVy(flights[10]);
         x11 += vx11*m;
         y11 -= vy11*m;
     }
@@ -280,47 +317,47 @@ function animate() {
     // #12 Flight departure-5
     if(timer > 865) {
         draw(x12, y12);
-        flight(obj12, x12, y12);
-        var vx12 = getVx(obj12);
-        var vy12 = getVy(obj12);
+        flight(flights[11], x12, y12);
+        var vx12 = getVx(flights[11]);
+        var vy12 = getVy(flights[11]);
         x12 += vx12*m;
         y12 -= vy12*m;
-        obj12.speed += .0032*m/6;
-        obj12.altd += .0032*m;
+        flights[11].speed += .0032*m/6;
+        flights[11].altd += .0032*m;
     }
 
     // #13 Flight arrival-4
-    if(timer > 910  && obj13.altd > 10) {
+    if(timer > 910  && flights[12].altd > 10) {
         draw(x13, y13);
-        flight(obj13, x13, y13);
-        var vx13 = getVx(obj13);
-        var vy13 = getVy(obj13);
+        flight(flights[12], x13, y13);
+        var vx13 = getVx(flights[12]);
+        var vy13 = getVy(flights[12]);
         x13 += vx13*m;
         y13 -= vy13*m;
-        obj13.speed -= .0032*m/6;
-        obj13.altd -= .0034*m;
+        flights[12].speed -= .0032*m/6;
+        flights[12].altd -= .0034*m;
     }
 
     // #14 Flight enroute-5
     if(timer > 934) {
         draw(x14, y14);
-        flight(obj14, x14, y14);
-        var vx14 = getVx(obj14);
-        var vy14 = getVy(obj14);
+        flight(flights[13], x14, y14);
+        var vx14 = getVx(flights[13]);
+        var vy14 = getVy(flights[13]);
         x14 += vx14*m;
         y14 -= vy14*m;
     }
 
     // #15 Flight arrival-5
-    if(timer > 1031  && obj15.altd > 12) {
+    if(timer > 1031  && flights[14].altd > 12) {
         draw(x15, y15);
-        flight(obj15, x15, y15);
-        var vx15 = getVx(obj15);
-        var vy15 = getVy(obj15);
+        flight(flights[14], x15, y15);
+        var vx15 = getVx(flights[14]);
+        var vy15 = getVy(flights[14]);
         x15 += vx15*m;
         y15 -= vy15*m;
-        obj15.speed -= .0032*m/6;
-        obj15.altd -= .0036*m;
+        flights[14].speed -= .0032*m/6;
+        flights[14].altd -= .0036*m;
     }
 }
 
@@ -380,35 +417,30 @@ function getFlightInfo(obj, t, route, place) {
 
 // Display all flight details
 function displayFlightInfo() {
-    getFlightInfo(obj1, "65", "E", "info1");
-    getFlightInfo(obj2, "120", "A", "info2");
-    getFlightInfo(obj3, "152", "D", "info3");
-    getFlightInfo(obj4, "243", "A", "info4");
-    getFlightInfo(obj5, "288", "D", "info5");
-    getFlightInfo(obj6, "310", "E", "info6");
-    getFlightInfo(obj7, "410", "A", "info7");
-    getFlightInfo(obj9, "502", "E", "info8");
-    getFlightInfo(obj8, "645", "D", "info9");
-    getFlightInfo(obj10, "740", "D", "info10");
-    getFlightInfo(obj11, "808", "E", "info11");
-    getFlightInfo(obj12, "865", "D", "info12");
-    getFlightInfo(obj13, "910", "A", "info13");
-    getFlightInfo(obj14, "934", "E", "info14");
-    getFlightInfo(obj15, "1031", "A", "info15");
+    getFlightInfo(flights[0], "65", "E", "info1");
+    getFlightInfo(flights[1], "120", "A", "info2");
+    getFlightInfo(flights[2], "152", "D", "info3");
+    getFlightInfo(flights[3], "243", "A", "info4");
+    getFlightInfo(flights[4], "288", "D", "info5");
+    getFlightInfo(flights[5], "310", "E", "info6");
+    getFlightInfo(flights[6], "410", "A", "info7");
+    getFlightInfo(flights[8], "502", "E", "info8");
+    getFlightInfo(flights[7], "645", "D", "info9");
+    getFlightInfo(flights[9], "740", "D", "info10");
+    getFlightInfo(flights[10], "808", "E", "info11");
+    getFlightInfo(flights[11], "865", "D", "info12");
+    getFlightInfo(flights[12], "910", "A", "info13");
+    getFlightInfo(flights[13], "934", "E", "info14");
+    getFlightInfo(flights[14], "1031", "A", "info15");
 }
 
-function getFLightStrip(obj, planId, squawk, pTime, dep) {
+function getFLightStrip(obj, planId, squawk, pTime, dep, altitude) {
     document.getElementById("airId").value = obj.airId;
-    document.getElementById("type").value = obj.type;
+    let type = obj.type + "/" + obj.class;
+    document.getElementById("type").value = type;
     document.getElementById("planId").value = planId;
     document.getElementById("squawk").value = squawk;
     document.getElementById("pTime").value = pTime;
-    let altitude = "";
-    if(parseInt(obj.altd) < 100) {
-        altitude = "0" + parseInt(obj.altd);
-    } else {
-        altitude = parseInt(obj.altd);
-    }
     document.getElementById("altd").value = altitude;
     document.getElementById("airport").value = dep;
     let route = dep + "  ";
@@ -438,21 +470,21 @@ function resetFlight(obj, a, s, c) {
 }
 
 function resetAllFlight() {
-    resetFlight(obj1, 090, 27, 332);
-    resetFlight(obj2, 091, 28, 35);
-    resetFlight(obj3, 011, 16, 53);
-    resetFlight(obj4, 085, 27, 270);
-    resetFlight(obj5, 012, 16, 145);
-    resetFlight(obj6, 088, 28, 115);
-    resetFlight(obj7, 090, 28, 126);
-    resetFlight(obj8, 012, 15, 154);
-    resetFlight(obj9, 101, 27, 22);
-    resetFlight(obj10, 011, 16, 71);
-    resetFlight(obj11, 092, 29, 240);
-    resetFlight(obj12, 010, 15, 280);
-    resetFlight(obj13, 088, 26, 180);
-    resetFlight(obj14, 090, 28, 290);
-    resetFlight(obj15, 089, 27, 351);
+    resetFlight(flights[0], 090, 27, 332);
+    resetFlight(flights[1], 091, 28, 35);
+    resetFlight(flights[2], 011, 16, 53);
+    resetFlight(flights[3], 085, 27, 270);
+    resetFlight(flights[4], 012, 16, 145);
+    resetFlight(flights[5], 088, 28, 115);
+    resetFlight(flights[6], 090, 28, 126);
+    resetFlight(flights[7], 012, 15, 154);
+    resetFlight(flights[8], 094, 27, 22);
+    resetFlight(flights[9], 011, 16, 71);
+    resetFlight(flights[10], 092, 29, 240);
+    resetFlight(flights[11], 010, 15, 280);
+    resetFlight(flights[12], 088, 26, 180);
+    resetFlight(flights[13], 090, 28, 290);
+    resetFlight(flights[14], 089, 27, 351);
     document.getElementById("info1").style.backgroundColor = "#FFEFCB";
     document.getElementById("info2").style.backgroundColor = "#FFEFCB";
     document.getElementById("info3").style.backgroundColor = "#FFEFCB";

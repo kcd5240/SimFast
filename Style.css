@@ -27,7 +27,7 @@ table {
     border-collapse: collapse;
 }
 td {
-    border: 1px solid gray;
+    border: 1px solid black;
     text-align: left;
     vertical-align: top;
     background-color: #FFFFC0;
@@ -41,6 +41,11 @@ th {
 main input {
     border: none;
     background: transparent;
+}
+aside .keyboard{
+    position: absolute;
+    cursor: move;
+    z-index: 10;
 }
 #airId, #type, #planId {
     width: 81px;
@@ -62,7 +67,7 @@ main input {
 }
 #time {
     resize: none;
-    width: 130px;
+    width: 50px;
     height: 18px;
     text-align: center;
     border: 1px solid black;
@@ -86,7 +91,22 @@ main input {
     border: 1px solid black;
     background: #FFEFCB;
 }
+#clickStrip {
+    width: 200px;
+    padding: 2px;
+    border: 1px solid black;
+    background: #FFEFCB;
+}
 
+#cmd {
+    width: 200px;
+    height: 20px;
+}
+.keyboard #closeKb {
+    margin-left: 450px;
+    height: 25px;
+    background-color: red;
+}
 @media screen and (min-width: 815px) {
   #layout {
          display: grid;
@@ -118,6 +138,6 @@ main input {
         aside {
          grid-area: 4 / 2 / 5 / 3;
          display: grid;
-         grid-template-columns: 300px 300px;
+         grid-template-columns: 250px 350px ;
         }
 }
