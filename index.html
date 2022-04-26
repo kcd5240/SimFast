@@ -56,8 +56,8 @@
                 <button id="M2" value="M2" onclick="insertText('M2');">M2</button>
                 <button id="M3" value="M3" onclick="insertText('M3');">M3</button>
                 <button id="M4" value="M4" onclick="insertText('M4');">M4</button>
-                <button id="CON" value="CON">CON</button>
-                <button id="MAP" value="MAP">MAP</button>
+                <button id="CON" value="CON" onclick="insertText('CON');">CON</button>
+                <button id="MAP" value="MAP" onclick="insertText('MAP');">MAP</button>
                 <button id="M5" value="M5" onclick="insertText('M5');">M5</button>
                 <button id="M6" value="M6" onclick="insertText('M6');">M6</button>
                 <button id="M7" value="M7" onclick="insertText('M7');">M7</button>
@@ -67,7 +67,7 @@
             <button id="M10" value="M10" onclick="insertText('M10');">M10</button>
             <button id="M11" value="M11" onclick="insertText('M11');">M11</button>
             <button id="M12" value="M12" onclick="insertText('M12');">M12</button>
-            <button id="TRK" value="TRK">TRK</button>
+            <button id="TRK" value="TRK" onclick="insertText('TRK');">TRK</button>
             <button id="USR" value="USR" onclick="insertText('USR');">USR</button>
             <button id="M13" value="M13" onclick="insertText('M13');">M13</button>
             <button id="M14" value="M14" onclick="insertText('M14');">M14</button>
@@ -79,15 +79,15 @@
             <button id="SPACE" value=" " onclick="insertText(' ');"><b>SPACE</b></button>
             <button id="ENTER" value="ENTER"><b>ENTER</b></button>
         </div> <div class="row1">
-            <button id="INIT CTRL" value="INIT CTRL">INIT CTRL</button>
-            <button id="TRK RPOS" value="TRK RPOS">TRK RPOS</button>
-            <button id="TRK SUSP" value="TRK RPOS">TRK RPOS</button>
-            <button id="TERM CTRL" value="TERM CTRL">TERM CTRL</button>
-            <button id="HND OFF" value="HND OFF">HND OFF</button>
-            <button id="FLT DATA" value="FLT DATA">FLT DATA</button>
-            <button id="MULTI FUNC" value="MULTI FUNC">MULTI FUNC</button>
+            <button id="INIT CTRL" value="INIT CTRL" onclick="insertText('INIT CTRL');">INIT CTRL</button>
+            <button id="TRK RPOS" value="TRK RPOS" onclick="insertText('TRK RPOS');">TRK RPOS</button>
+            <button id="TRK SUSP" value="TRK SUSP" onclick="insertText('TRK SUSP');">TRK SUSP</button>
+            <button id="TERM CTRL" value="TERM CTRL" onclick="insertText('TERM CTRL');">TERM CTRL</button>
+            <button id="HND OFF" value="HND OFF" onclick="insertText('HND OFF');">HND OFF</button>
+            <button id="FLT DATA" value="FLT DATA" onclick="insertText('FLT DATA');">FLT DATA</button>
+            <button id="MULTI FUNC" value="MULTI FUNC" onclick="insertText('MULTI FUNC');">MULTI FUNC</button>
             <button id="F8" value="F8" onclick="insertText('F8');">F8</button>
-            <button id="triangle" value="Δ" style="font-size: 32px">Δ</button>
+            <button id="triangle" value="Δ" style="font-size: 32px" onclick="insertText('Δ');">Δ</button>
             <button id="dot" value="." style="font-size: 32px" onclick="insertText('.');">.</button>
         </div> <div class="row1">
             <button id="F9" value="F9" onclick="insertText('F9');">F9</button>
@@ -154,12 +154,12 @@
                 <option value="20">20x</option>
             </select>
             <button id="run">Run</button>
-            <button id="pause">Stop</button>
+            <button id="pause">Stop</button><br>
             <input id="time" readonly>
             <button id="restart">Restart</button>
-            <button id="kb">Keyboard</button>
-            <textarea readonly id="cmd" placeholder="Type your command here" style="resize: none;"></textarea>
-            <div id="clickStrip">
+            <button id="kb">Keyboard</button><br>
+            <textarea readonly id="cmd" placeholder="Type your command here" style="resize: none;"></textarea><br>
+                <section id="clickStrip">
                 <select id="getStrip">
                     <option value="15" selected="selected">Get Flight Strip</option>
                     <option value="0">EJA363</option>
@@ -179,7 +179,7 @@
                     <option value="14">AAL856</option>
                 </select>
                 <button id="go">Go</button>
-            </div>
+                </section>
         </div>
 
         <div id="flightInfo">

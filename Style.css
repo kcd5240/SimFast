@@ -92,13 +92,13 @@ aside .keyboard{
     background: #FFEFCB;
 }
 #clickStrip {
-    width: 200px;
-    padding: 2px;
+    margin: auto;
     border: 1px solid black;
     background: #FFEFCB;
+    width: 200px;
 }
 #getStrip {
-    width: 160px;
+    width: 150px;
 }
 
 #cmd {
@@ -141,6 +141,6 @@ aside .keyboard{
         aside {
          grid-area: 4 / 2 / 5 / 3;
          display: grid;
-         grid-template-columns: 250px 350px ;
+         grid-template-columns: 300px 300px ;
         }
 }
