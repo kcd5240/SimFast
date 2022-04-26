@@ -10,8 +10,9 @@
     <script type="text/javascript">
       function insertText(text)
       {
-        var elem = document.getElementById("cmd");
-        elem.innerHTML += text;
+        var elem = document.getElementById("cmd").value;
+        elem += text;
+        document.getElementById("cmd").value = elem;
       }
     function eraseText() {
         document.getElementById("cmd").value = "";
@@ -159,7 +160,25 @@
             <button id="kb">Keyboard</button>
             <textarea readonly id="cmd" placeholder="Type your command here" style="resize: none;"></textarea>
             <div id="clickStrip">
-                Click on flight details to get flight strip
+                <select id="getStrip">
+                    <option value="15" selected="selected">Get Flight Strip</option>
+                    <option value="0">EJA363</option>
+                    <option value="1">FFT2378</option>
+                    <option value="2">N300GB</option>
+                    <option value="3">AAL2189</option>
+                    <option value="4">FFT108</option>
+                    <option value="5">GPD816</option>
+                    <option value="6">DAL2942</option>
+                    <option value="8">DAL8839</option>
+                    <option value="7">AAL646</option>
+                    <option value="9">JIA5358</option>
+                    <option value="10">SWA893</option>
+                    <option value="11">JIA5548</option>
+                    <option value="12">AAL551</option>
+                    <option value="13">RPA4749</option>
+                    <option value="14">AAL856</option>
+                </select>
+                <button id="go">Go</button>
             </div>
         </div>
 
@@ -241,6 +260,29 @@
           }
         }
         </script>
+        <script>
+            $(document).ready(function(){
+              var txt=$('#cmd');
+              $("#keyboard").on('click','input',function() {
+                txt.val(txt.val()+this.id);
+              });
+             });
+
+            function eraseText() {
+                document.getElementById("cmd").value = "";
+            }
+            function onPressBackspace() {
+                cmd.value = cmd.value.substring(0, cmd.value.length - 1);
+            }
+            $(document).keydown(function (e) {
+                            var element = e.target.nodeName.toLowerCase();
+                            if ((element != 'input' && element != 'textarea') || $(e.target).attr("readonly") || (e.target.getAttribute("type") ==="checkbox")) {
+                                if (e.keyCode === 8) {
+                                return false;
+                                }
+                            }
+            });
+    </script>
     </aside>
 
 

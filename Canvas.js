@@ -22,69 +22,47 @@ var timer = 0;
 var isPause = true;
 var count = 0;
 
+$("#go").on('click',function() {
+    var select = document.getElementById("getStrip").value;
+    document.getElementById("table").style.display = "block";
+    if(select == "15") {
+        document.getElementById("table").style.display = "none";
+    } else if(select == "0") {
+        getFLightStrip(flights[0], "203", "6315", "P1142", "FXE", "090");
+    }else if(select == "1") {
+        getFLightStrip(flights[1], "311", "1511", "P0848", "LHR", "091");
+    }else if(select == "2") {
+        getFLightStrip(flights[2], "110", "4479", "P1300", "PHL", "090");
+    }else if(select == "3") {
+        getFLightStrip(flights[3], "158", "4120", "P1034", "UNV", "085");
+    }else if(select == "4") {
+        getFLightStrip(flights[4], "590", "5158", "P1315", "PHL", "091");
+    }else if(select == "5") {
+        getFLightStrip(flights[5], "662", "5275", "P1115", "SOP", "088");
+    }else if(select == "6") {
+        getFLightStrip(flights[6], "795", "1791", "P0929", "DAY", "090");
+    }else if(select == "8") {
+        getFLightStrip(flights[8], "172", "2476", "P0831", "ILM", "094");
+    }else if(select == "7") {
+        getFLightStrip(flights[7], "489", "5605", "P1345", "PHL", "091");
+    }else if(select == "9") {
+        getFLightStrip(flights[9], "789", "2579", "P1400", "PHL", "090");
+    }else if(select == "10") {
+        getFLightStrip(flights[10], "421", "7038", "P1244", "ATL", "092");
+    }else if(select == "11") {
+        getFLightStrip(flights[11], "275", "1124", "P1413", "PHL", "089");
+    }else if(select == "12") {
+        getFLightStrip(flights[12], "881", "6251", "P1212", "MIA", "088");
+    }else if(select == "13") {
+        getFLightStrip(flights[13], "919", "4616", "P1050", "MIC", "090");
+    }else if(select == "14") {
+        getFLightStrip(flights[14], "574", "4260", "P1120", "DFW", "089");
+    }
+});
 $("#close").on('click',function() {
     document.getElementById("table").style.display = "none";
 });
-$("#info1").on('click',function() {
-    document.getElementById("table").style.display = "block";
-    getFLightStrip(flights[0], "203", "6315", "P1142", "FXE", "090");
-});
-$("#info2").on('click',function() {
-    document.getElementById("table").style.display = "block";
-    getFLightStrip(flights[1], "311", "1511", "P0848", "LHR", "091");
-});
-$("#info3").on('click',function() {
-    document.getElementById("table").style.display = "block";
-    getFLightStrip(flights[2], "110", "4479", "P1300", "PHL", "090");
-});
-$("#info4").on('click',function() {
-    document.getElementById("table").style.display = "block";
-    getFLightStrip(flights[3], "158", "4120", "P1034", "UNV", "085");
-});
-$("#info5").on('click',function() {
-    document.getElementById("table").style.display = "block";
-    getFLightStrip(flights[4], "590", "5158", "P1315", "PHL", "091");
-});
-$("#info6").on('click',function() {
-    document.getElementById("table").style.display = "block";
-    getFLightStrip(flights[5], "662", "5275", "P1115", "SOP", "088");
-});
-$("#info7").on('click',function() {
-    document.getElementById("table").style.display = "block";
-    getFLightStrip(flights[6], "795", "1791", "P0929", "DAY", "090");
-});
-$("#info8").on('click',function() {
-    document.getElementById("table").style.display = "block";
-    getFLightStrip(flights[8], "172", "2476", "P0831", "ILM", "094");
-});
-$("#info9").on('click',function() {
-    document.getElementById("table").style.display = "block";
-    getFLightStrip(flights[7], "489", "5605", "P1345", "PHL", "091");
-});
-$("#info10").on('click',function() {
-    document.getElementById("table").style.display = "block";
-    getFLightStrip(flights[9], "789", "2579", "P1400", "PHL", "090");
-});
-$("#info11").on('click',function() {
-    document.getElementById("table").style.display = "block";
-    getFLightStrip(flights[10], "421", "7038", "P1244", "ATL", "092");
-});
-$("#info12").on('click',function() {
-    document.getElementById("table").style.display = "block";
-    getFLightStrip(flights[11], "275", "1124", "P1413", "PHL", "089");
-});
-$("#info13").on('click',function() {
-    document.getElementById("table").style.display = "block";
-    getFLightStrip(flights[12], "881", "6251", "P1212", "MIA", "088");
-});
-$("#info14").on('click',function() {
-    document.getElementById("table").style.display = "block";
-    getFLightStrip(flights[13], "919", "4616", "P1050", "MIC", "090");
-});
-$("#info15").on('click',function() {
-    document.getElementById("table").style.display = "block";
-    getFLightStrip(flights[14], "574", "4260", "P1120", "DFW", "089");
-});
+
 
 // pause or continue the animation on #pause click
 $("#pause").on('click',function() {

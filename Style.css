@@ -97,6 +97,9 @@ aside .keyboard{
     border: 1px solid black;
     background: #FFEFCB;
 }
+#getStrip {
+    width: 160px;
+}
 
 #cmd {
     width: 200px;
